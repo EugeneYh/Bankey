@@ -68,7 +68,7 @@ extension LoginView {
         stackView.addArrangedSubview(userNameTextField)
         stackView.addArrangedSubview(deviderView)
         stackView.addArrangedSubview(passwordTextField)
-        addSubview(stackView)
+        self.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
@@ -89,11 +89,7 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        } else {
-            return false
-        }
+       return true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
