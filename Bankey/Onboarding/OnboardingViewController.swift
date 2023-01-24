@@ -9,20 +9,30 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
+    private var heroImageName: String {
+        didSet {
+            imageView.image = UIImage(named: heroImageName)
+        }
+    }
+    private var titleText: String {
+        didSet {
+            label.text = titleText
+        }
+    }
+    
     let label: UILabel = {
         let lb = UILabel()
-        lb.text = "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989."
+//        lb.text = "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989."
         lb.numberOfLines = 0
         lb.font = UIFont.preferredFont(forTextStyle: .title3)
         lb.adjustsFontSizeToFitWidth = true
-        lb.textAlignment = .center 
+        lb.textAlignment = .center
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     
     let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "delorean")
         iv.contentMode = .scaleAspectFit
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
@@ -36,6 +46,17 @@ class OnboardingViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    init(heroImageName: String, titleText: String) {
+        self.heroImageName = heroImageName
+        self.titleText = titleText
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
