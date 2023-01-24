@@ -9,23 +9,15 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    private var heroImageName: String {
-        didSet {
-            imageView.image = UIImage(named: heroImageName)
-        }
-    }
-    private var titleText: String {
-        didSet {
-            label.text = titleText
-        }
-    }
+    private let heroImageName: String
+    private let titleText: String
     
-    let label: UILabel = {
+    let descriptionLabel: UILabel = {
         let lb = UILabel()
-//        lb.text = "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989."
         lb.numberOfLines = 0
         lb.font = UIFont.preferredFont(forTextStyle: .title3)
         lb.adjustsFontSizeToFitWidth = true
+        lb.adjustsFontForContentSizeCategory = true
         lb.textAlignment = .center
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -61,11 +53,17 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
     }
     
     fileprivate func setupView() {
+        view.backgroundColor = .systemBackground
+        
         stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(descriptionLabel)
+        
+        imageView.image = UIImage(named: heroImageName)
+        descriptionLabel.text = titleText
         
         view.addSubview(stackView)
 
