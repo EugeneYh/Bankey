@@ -28,8 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onboaringViewController.delegate = self
         dummyViewController.logoutDelegate = self
         
-        window?.rootViewController = mainTabBarController
-        mainTabBarController.selectedIndex = 1
+        window?.rootViewController = AccountSummaryViewController()
+        
+//        mainTabBarController.selectedIndex = 1
         
         window?.backgroundColor = .systemBackground
         return true
