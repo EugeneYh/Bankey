@@ -17,10 +17,6 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setupViews() {
-        
-    }
-    
-    private func setupTabBar() {
         let summaryVC = AccountSummaryViewController()
         let moneyVC = MoveMoneyViewController()
         let moreVC = MoreViewController()
@@ -39,7 +35,6 @@ class MainTabBarController: UITabBarController {
         let tabBarList = [summaryNC, moneyNC, moreNC]
         
         viewControllers = tabBarList
-        
     }
     
     private func hideNavigationBarLine(_ navigationBar: UINavigationBar) {
@@ -49,7 +44,7 @@ class MainTabBarController: UITabBarController {
         navigationBar.isTranslucent = false
     }
     
-    private func setupTabBat() {
+    private func setupTabBar() {
         tabBar.tintColor = appColor
         tabBar.isTranslucent = false
     }
